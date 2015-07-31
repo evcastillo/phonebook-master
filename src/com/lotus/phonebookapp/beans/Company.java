@@ -66,6 +66,7 @@ public class Company {
 
 	}
 
+	
 	@Override
 	public String toString() {
 		return " "+companyName + ", " + companyCode + ", " + companyDescription;

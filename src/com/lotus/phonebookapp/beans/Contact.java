@@ -5,6 +5,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 public class Contact {
 	DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
 	private long contactId;
@@ -13,7 +15,7 @@ public class Contact {
 	private Date contactBirthday = null;
 	private boolean isVIP;
 	private long companyId;
-
+	@JsonIgnore
 	public long getContactId() {
 		return contactId;
 	}
@@ -107,6 +109,7 @@ public class Contact {
 		}
 	}
 
+	
 	@Override
 	public String toString() {
 		String bday = df.format(contactBirthday);

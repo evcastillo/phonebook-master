@@ -7,8 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Date;
 import java.sql.Statement;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,6 +37,8 @@ public class PhonebookOJDBDAO implements PhonebookDAO {
 		return connection;
 	}
 
+	
+	@Override
 	public List<Contact> contactList() {
 		List<Contact> contacts = new ArrayList<Contact>();
 		Connection connection = null;
@@ -77,6 +77,8 @@ public class PhonebookOJDBDAO implements PhonebookDAO {
 		return contacts;
 	}
 
+	
+	@Override
 	public Company getCompanyByContact(Contact contact) {
 		List<Company> companies = companyList();
 		for (Company comp : companies) {
@@ -134,6 +136,8 @@ public class PhonebookOJDBDAO implements PhonebookDAO {
 		return companies;
 	}
 
+	
+	@Override
 	public Contact getByName(String contactName) {
 		Connection connection = null;
 		Statement statement = null;
@@ -180,6 +184,8 @@ public class PhonebookOJDBDAO implements PhonebookDAO {
 		return contact;
 	}
 
+	
+	@Override
 	public List<Contact> search(String keyword) {
 		List<Contact> contacts = new ArrayList<Contact>();
 		Connection connection = null;
@@ -220,6 +226,8 @@ public class PhonebookOJDBDAO implements PhonebookDAO {
 		return contacts;
 	}
 
+	
+	@Override
 	public void delete(String contactName) {
 		Connection connection = null;
 		Statement statement = null;
@@ -262,6 +270,8 @@ public class PhonebookOJDBDAO implements PhonebookDAO {
 		}
 	}
 
+	
+	@Override
 	public void update(String contactName, String newNumber) {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -313,6 +323,8 @@ public class PhonebookOJDBDAO implements PhonebookDAO {
 		sstatement.execute("alter session set NLS_SORT=BINARY_CI");
 	}
 
+	
+	@Override
 	public void create(Contact contact) {
 		Connection connection = null;
 		PreparedStatement statement = null;
